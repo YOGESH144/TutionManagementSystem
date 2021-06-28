@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewBag.Title = "RoleList";
+}
+
+<h2>RoleList</h2>
+<p>
+    @Html.ActionLink("Create Role", "Create", "Roles")
+</p>
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Role Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Role Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+}
