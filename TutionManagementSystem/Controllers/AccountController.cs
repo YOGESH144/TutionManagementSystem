@@ -212,7 +212,7 @@ namespace TutionManagementSystem.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
-            ViewBag.Role = new SelectList(_roleManager.Roles.ToList(), "Name", "Name"); 
+            //ViewBag.Role = new SelectList(_roleManager.Roles.ToList(), "Name", "Name"); 
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -230,7 +230,7 @@ namespace TutionManagementSystem.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    await _userManager.AddToRoleAsync(user, model.Name);
+                    //await _userManager.AddToRoleAsync(user, model.Name);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
